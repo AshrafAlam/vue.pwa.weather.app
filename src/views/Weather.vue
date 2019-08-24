@@ -7,7 +7,7 @@
             <v-container py-0>
               <v-layout wrap>
                 <v-flex xs12 md3>
-                  <v-text-field label="City" />
+                  <v-text-field label="City" v-model="searchCity" />
                 </v-flex>
                 <v-flex xs12 md6></v-flex>
                 <v-flex xs12 md3 justify-right>
