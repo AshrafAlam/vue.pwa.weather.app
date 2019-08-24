@@ -121,7 +121,7 @@ export default {
     firebase.db.collection('fav-cities').orderBy('CityName','desc').onSnapshot((snapShot) => {
             this.favouriteCities=[];
             snapShot.forEach((city)  => {
-                this.favouriteCities.push(city);
+                this.favouriteCities.push(city.data().CityName);
             });
         });      
     }
