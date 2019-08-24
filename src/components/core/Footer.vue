@@ -19,8 +19,8 @@
       &copy;
       {{ (new Date()).getFullYear() }}
       <a
-        href="https://www.creative-tim.com/"
-        target="_blank">Creative Tim</a>, made with
+        href="https://mvp.microsoft.com/en-us/PublicProfile/37586"
+        target="_blank">Ashraf Alam</a>, made with
       <v-icon
         color="tertiary"
         size="17">mdi-heart</v-icon>
@@ -34,9 +34,9 @@ export default {
   data: () => ({
     links: [
       { name: 'Home', Link: '/dashboard' },
-      { name: 'Creative Tim', Link: 'https://www.creative-tim.com' },
-      { name: 'About Us', Link: 'https://creative-tim.com/presentation' },
-      { name: 'Blog', Link: 'https://blog.creative-tim.com' }
+      { name: 'Ashraf Alam', Link: 'https://mvp.microsoft.com/en-us/PublicProfile/37586' },
+      { name: 'Github', Link: 'https://github.com/AshrafAlam' },
+      { name: 'Stackoverflow', Link: 'https://stackoverflow.com/users/79739/ashraf-alam' }
     ]
   })
 }
