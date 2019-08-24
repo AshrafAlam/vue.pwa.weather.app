@@ -25,10 +25,18 @@
                   >Find Forecast</v-btn>
                 </v-flex>
                 <v-flex xs12 md2>
-                  <v-btn class="mx-0 font-weight-light" color="success">Current City</v-btn>
+                  <v-btn
+                    class="mx-0 font-weight-light"
+                    color="success"
+                    @click="onCurrentLocation()"
+                  >Current City</v-btn>
                 </v-flex>
                 <v-flex xs12 md2>
-                  <v-btn class="mx-0 font-weight-light" color="success" @click="onSaveClick()">Save Search</v-btn>
+                  <v-btn
+                    class="mx-0 font-weight-light"
+                    color="success"
+                    @click="onSaveClick()"
+                  >Save Search</v-btn>
                 </v-flex>
               </v-layout>
             </v-container>
@@ -97,7 +105,7 @@ export default {
       ],
       hourlyForeCast: {},
       favouriteCities: [],
-      searchCity: "Singapore"
+      searchCity: ""
     };
   },
   created: function() {
@@ -108,9 +116,13 @@ export default {
     onSearchClick() {
       this.fetchHourlyItems();
     },
-    onSaveClick()
-    {
-      alert(this.searchCity);
+    onSaveClick() {
+      firebase.db.collection("fav-cities").add({
+        CityName: this.searchCity
+      });
+    },
+    onCurrentLocation() {
+      this.searchCity = "Singapore";
     },
     fetchHourlyItems() {
       axios.defaults.withCredentials = false;
