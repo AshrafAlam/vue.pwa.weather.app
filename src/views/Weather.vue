@@ -11,15 +11,17 @@
                 </v-flex>
                 <v-flex xs12 md6></v-flex>
                 <v-flex xs12 md3 justify-right>
-                  <v-menu offset-y v-model="searchCity">
-                    <template v-slot:activator="{ on }" >
-                      <v-btn color="success" dark v-on="on">Favourite Cities</v-btn>
-                    </template>
-                    <v-list dense v-model="searchCity">
-                      <v-list-tile v-for="city in favouriteCities" :key="city" @click="onFavCitiesClick">
-                        <v-list-tile-title v-text="city" />
-                      </v-list-tile>
-                    </v-list>
+                  <v-menu offset-y content-class="dropdown-menu" transition="slide-y-transition" >
+                    <v-btn slot="activator" color="success">
+                      <v-icon left>mdi-bell</v-icon>Dropdown
+                    </v-btn>
+                    <v-card>
+                      <v-list dense>
+                        <v-list-tile v-for="favouriteCity in favouriteCities" :key="favouriteCity">
+                          <v-list-tile-title v-text="favouriteCity" />
+                        </v-list-tile>
+                      </v-list>
+                    </v-card>
                   </v-menu>
                 </v-flex>
                 <v-flex xs12 md2>
@@ -96,7 +98,7 @@ export default {
       ],
       hourlyForeCast: {},
       favouriteCities: {},
-      searchCity:"Click Me",
+      searchCity: "Click Me"
     };
   },
   created: function() {
@@ -104,8 +106,7 @@ export default {
     this.fetchFavouriteCities();
   },
   methods: {
-    onFavCitiesClick()
-    {
+    onFavCitiesClick() {
       alert(this.searchCity);
     },
     fetchHourlyItems() {
