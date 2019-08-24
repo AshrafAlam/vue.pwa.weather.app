@@ -28,7 +28,7 @@
                   <v-btn class="mx-0 font-weight-light" color="success">Current City</v-btn>
                 </v-flex>
                 <v-flex xs12 md2>
-                  <v-btn class="mx-0 font-weight-light" color="success">Save Search</v-btn>
+                  <v-btn class="mx-0 font-weight-light" color="success" @click="onSaveClick()">Save Search</v-btn>
                 </v-flex>
               </v-layout>
             </v-container>
@@ -107,6 +107,10 @@ export default {
   methods: {
     onSearchClick() {
       this.fetchHourlyItems();
+    },
+    onSaveClick()
+    {
+      alert(this.searchCity);
     },
     fetchHourlyItems() {
       axios.defaults.withCredentials = false;
