@@ -59,6 +59,8 @@
 
 <script>
 import axios from "axios";
+import firebase from '../configFirebase.js'
+
 export default {
   data() {
     return {
@@ -90,7 +92,7 @@ export default {
         }
       ],
       hourlyForeCast: {},
-      favouriteCities: {},
+      favouriteCities: [],
       searchCity: "xxx"
     };
   },
@@ -116,12 +118,12 @@ export default {
         });
     },
     fetchFavouriteCities() {
-      this.favouriteCities = [
-        "Singapore",
-        "London",
-        "New York",
-        "Dhaka"
-      ];
+    firebase.db.collection('fav-cities').orderBy('CityName','desc').onSnapshot((snapShot) => {
+            this.favouriteCities=[];
+            snapShot.forEach((city)  => {
+                this.favouriteCities.push(city);
+            });
+        });      
     }
   }
 };
