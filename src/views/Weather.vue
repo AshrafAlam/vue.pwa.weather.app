@@ -18,7 +18,7 @@
                   ></v-select>
                 </v-flex>
                 <v-flex xs12 md2>
-                  <v-btn class="mx-0 font-weight-light" color="success">Find Forecast</v-btn>
+                  <v-btn class="mx-0 font-weight-light" @click="onSearchClick()" color="success">Find Forecast</v-btn>
                 </v-flex>
                 <v-flex xs12 md2>
                   <v-btn class="mx-0 font-weight-light" color="success">Current City</v-btn>
@@ -91,7 +91,7 @@ export default {
       ],
       hourlyForeCast: {},
       favouriteCities: {},
-      searchCity: "Click Me"
+      searchCity: "xxx"
     };
   },
   created: function() {
@@ -99,11 +99,16 @@ export default {
     this.fetchFavouriteCities();
   },
   methods: {
+    onSearchClick() {
+      this.fetchHourlyItems();
+    },
     fetchHourlyItems() {
       axios.defaults.withCredentials = false;
       axios
         .get(
-          "/api/data/2.5/forecast/hourly?q=Singapore,us&appid=b6907d289e10d714a6e88b30761fae22",
+          "/api/data/2.5/forecast/hourly?q=" +
+            this.searchCity +
+            "&appid=b6907d289e10d714a6e88b30761fae22",
           { crossdomain: true }
         )
         .then(response => {
@@ -112,10 +117,10 @@ export default {
     },
     fetchFavouriteCities() {
       this.favouriteCities = [
-        "Click Me",
-        "Click Me 1",
-        "Click Me 2",
-        "Click Me 3"
+        "Singapore",
+        "London",
+        "New York",
+        "Dhaka"
       ];
     }
   }
