@@ -11,11 +11,11 @@
                 </v-flex>
                 <v-flex xs12 md6></v-flex>
                 <v-flex xs12 md3 justify-right>
-                  <v-combobox
+                  <v-select
                     v-model="searchCity"
                     :items="favouriteCities"
                     label="Select a favorite city"
-                  ></v-combobox>
+                  ></v-select>
                 </v-flex>
                 <v-flex xs12 md2>
                   <v-btn class="mx-0 font-weight-light" color="success">Find Forecast</v-btn>
