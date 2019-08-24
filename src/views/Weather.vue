@@ -67,13 +67,14 @@ export default {
   },
   methods: {
     fetchItems() {
+      axios.defaults.withCredentials = false;
       axios
         .get(
-          "https://samples.openweathermap.org/data/2.5/forecast/hourly?q=Singapore,us&appid=b6907d289e10d714a6e88b30761fae22",
+          "/api/data/2.5/forecast/hourly?q=Singapore,us&appid=b6907d289e10d714a6e88b30761fae22",
           { crossdomain: true }
         )
         .then(response => {
-          this.hourlyForeCast = response;
+          this.hourlyForeCast = response.data;
         });
     }
   }
