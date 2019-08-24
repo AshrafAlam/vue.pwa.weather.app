@@ -98,6 +98,11 @@ export default {
         text: 'Weather'
       },
       {
+        to: '/fav',
+        icon: 'mdi-asterisk',
+        text: 'Favourites'
+      },
+      {
         to: '/user-profile',
         icon: 'mdi-account',
         text: 'User Profile'

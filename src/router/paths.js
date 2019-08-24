@@ -11,8 +11,11 @@ export default [
   },
   {
     path: '/weather',
-    name: 'Table List',
     view: 'Weather'
+  },
+  {
+    path: '/fav',
+    view: 'Favourites'
   },
   {
     path: '/user-profile',
