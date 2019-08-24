@@ -9,12 +9,18 @@
                 <v-flex xs12 md3>
                   <v-text-field label="City" />
                 </v-flex>
-                <v-flex xs12 md6>
-                </v-flex>
-                <v-flex xs12 md3>
-                  <v-text-field label="Fav" class="purple-input" />
-                </v-flex>
-                <v-flex xs12 md3>
+                <v-flex xs12 md6></v-flex>
+                <v-flex xs12 md3 justify-right>
+                  <v-menu offset-y>
+                    <template v-slot:activator="{ on }">
+                      <v-btn color="success" dark v-on="on">Favourite Cities</v-btn>
+                    </template>
+                    <v-list dense>
+                      <v-list-tile v-for="city in favouriteCities" :key="city" @click="onFavCitiesClick">
+                        <v-list-tile-title v-text="city" />
+                      </v-list-tile>
+                    </v-list>
+                  </v-menu>
                 </v-flex>
                 <v-flex xs12 md2>
                   <v-btn class="mx-0 font-weight-light" color="success">Find Forecast</v-btn>
@@ -88,14 +94,20 @@ export default {
           value: "pressure"
         }
       ],
-      hourlyForeCast: {}
+      hourlyForeCast: {},
+      favouriteCities: {}
     };
   },
   created: function() {
-    this.fetchItems();
+    this.fetchHourlyItems();
+    this.fetchFavouriteCities();
   },
   methods: {
-    fetchItems() {
+    onFavCitiesClick()
+    {
+      alert('hi');
+    },
+    fetchHourlyItems() {
       axios.defaults.withCredentials = false;
       axios
         .get(
@@ -105,6 +117,14 @@ export default {
         .then(response => {
           this.hourlyForeCast = response.data;
         });
+    },
+    fetchFavouriteCities() {
+      this.favouriteCities = [
+        "Click Me",
+        "Click Me 1",
+        "Click Me 2",
+        "Click Me 3"
+      ];
     }
   }
 };
