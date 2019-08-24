@@ -15,8 +15,8 @@
           color="green"
           flat
           full-width
-          title="Table on Plain Background"
-          text="Here is a subtitle for this table"
+          title="Hourly Weather Forecast"
+          text="Shows forecast data with temp, humidity etc."
         >
           <v-data-table
             :headers="headers"
@@ -58,7 +58,7 @@ export default {
         text: 'Time',
         value: 'time'
       },      {
-        sortable: false,
+        sortable: true,
         text: 'Temp',
         value: 'temp'
       },
@@ -76,40 +76,6 @@ export default {
         sortable: false,
         text: 'Pressure',
         value: 'pressure'
-      }
-    ],
-    items: [
-      {
-        name: 'Dakota Rice',
-        country: 'Niger',
-        city: 'Oud-Tunrhout',
-        salary: '$35,738'
-      },
-      {
-        name: 'Minerva Hooper',
-        country: 'Curaçao',
-        city: 'Sinaai-Waas',
-        salary: '$23,738'
-      }, {
-        name: 'Sage Rodriguez',
-        country: 'Netherlands',
-        city: 'Overland Park',
-        salary: '$56,142'
-      }, {
-        name: 'Philip Chanley',
-        country: 'Korea, South',
-        city: 'Gloucester',
-        salary: '$38,735'
-      }, {
-        name: 'Doris Greene',
-        country: 'Malawi',
-        city: 'Feldkirchen in Kārnten',
-        salary: '$63,542'
-      }, {
-        name: 'Mason Porter',
-        country: 'Chile',
-        city: 'Gloucester',
-        salary: '$78,615'
       }
     ],
   hourlyForeCast:
