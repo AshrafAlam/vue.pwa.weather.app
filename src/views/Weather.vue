@@ -18,7 +18,11 @@
                   ></v-select>
                 </v-flex>
                 <v-flex xs12 md2>
-                  <v-btn class="mx-0 font-weight-light" @click="onSearchClick()" color="success">Find Forecast</v-btn>
+                  <v-btn
+                    class="mx-0 font-weight-light"
+                    @click="onSearchClick()"
+                    color="success"
+                  >Find Forecast</v-btn>
                 </v-flex>
                 <v-flex xs12 md2>
                   <v-btn class="mx-0 font-weight-light" color="success">Current City</v-btn>
@@ -59,7 +63,7 @@
 
 <script>
 import axios from "axios";
-import firebase from '../configFirebase.js'
+import firebase from "../configFirebase.js";
 
 export default {
   data() {
@@ -93,7 +97,7 @@ export default {
       ],
       hourlyForeCast: {},
       favouriteCities: [],
-      searchCity: "xxx"
+      searchCity: "Singapore"
     };
   },
   created: function() {
@@ -118,12 +122,15 @@ export default {
         });
     },
     fetchFavouriteCities() {
-    firebase.db.collection('fav-cities').orderBy('CityName','desc').onSnapshot((snapShot) => {
-            this.favouriteCities=[];
-            snapShot.forEach((city)  => {
-                this.favouriteCities.push(city.data().CityName);
-            });
-        });      
+      firebase.db
+        .collection("fav-cities")
+        .orderBy("CityName", "desc")
+        .onSnapshot(snapShot => {
+          this.favouriteCities = [];
+          snapShot.forEach(city => {
+            this.favouriteCities.push(city.data().CityName);
+          });
+        });
     }
   }
 };
