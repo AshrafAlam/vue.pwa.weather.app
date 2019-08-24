@@ -39,7 +39,7 @@ export default {
           value: "time"
         },
         {
-          sortable: true,
+          sortable: false,
           text: "Temp",
           value: "temp"
         },
