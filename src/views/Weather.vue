@@ -1,6 +1,35 @@
 <template>
   <v-container fill-height fluid grid-list-xl>
-    <v-layout justify-center wrap>
+    <v-layout justify-left wrap>
+      <v-flex xs12 md8>
+        <material-card color="green" title="Search" text="Search for forecast data">
+          <v-form>
+            <v-container py-0>
+              <v-layout wrap>
+                <v-flex xs12 md3>
+                  <v-text-field label="City" />
+                </v-flex>
+                <v-flex xs12 md6>
+                </v-flex>
+                <v-flex xs12 md3>
+                  <v-text-field label="Fav" class="purple-input" />
+                </v-flex>
+                <v-flex xs12 md3>
+                </v-flex>
+                <v-flex xs12 md2>
+                  <v-btn class="mx-0 font-weight-light" color="success">Find Forecast</v-btn>
+                </v-flex>
+                <v-flex xs12 md2>
+                  <v-btn class="mx-0 font-weight-light" color="success">Current City</v-btn>
+                </v-flex>
+                <v-flex xs12 md2>
+                  <v-btn class="mx-0 font-weight-light" color="success">Save Search</v-btn>
+                </v-flex>
+              </v-layout>
+            </v-container>
+          </v-form>
+        </material-card>
+      </v-flex>
       <v-flex md12>
         <material-card
           color="green"
