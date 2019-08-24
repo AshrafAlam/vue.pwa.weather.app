@@ -11,18 +11,11 @@
                 </v-flex>
                 <v-flex xs12 md6></v-flex>
                 <v-flex xs12 md3 justify-right>
-                  <v-menu offset-y content-class="dropdown-menu" transition="slide-y-transition" >
-                    <v-btn slot="activator" color="success">
-                      <v-icon left>mdi-bell</v-icon>Dropdown
-                    </v-btn>
-                    <v-card>
-                      <v-list dense>
-                        <v-list-tile v-for="favouriteCity in favouriteCities" :key="favouriteCity">
-                          <v-list-tile-title v-text="favouriteCity" />
-                        </v-list-tile>
-                      </v-list>
-                    </v-card>
-                  </v-menu>
+                  <v-combobox
+                    v-model="searchCity"
+                    :items="favouriteCities"
+                    label="Select a favorite city"
+                  ></v-combobox>
                 </v-flex>
                 <v-flex xs12 md2>
                   <v-btn class="mx-0 font-weight-light" color="success">Find Forecast</v-btn>
@@ -106,9 +99,6 @@ export default {
     this.fetchFavouriteCities();
   },
   methods: {
-    onFavCitiesClick() {
-      alert(this.searchCity);
-    },
     fetchHourlyItems() {
       axios.defaults.withCredentials = false;
       axios
