@@ -35,6 +35,11 @@ import i18n from '@/i18n'
 import router from '@/router'
 import store from '@/store'
 
+import axios from 'axios'
+import VueAxios from 'vue-axios'
+
+Vue.use(VueAxios, axios)
+
 // Sync store with router
 sync(store, router)
 

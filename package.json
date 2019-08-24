@@ -13,6 +13,7 @@
     "node-sass": "^4.9.3",
     "sass-loader": "^7.1.0",
     "vue": "^2.5.17",
+    "vue-axios": "^2.1.4",
     "vue-chartist": "^2.1.2",
     "vue-meta": "^1.5.2",
     "vuetify": "^1.2.9"
