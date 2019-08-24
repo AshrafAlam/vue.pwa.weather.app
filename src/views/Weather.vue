@@ -13,40 +13,6 @@
       >
         <material-card
           color="green"
-          title="Simple Table"
-          text="Here is a subtitle for this table"
-        >
-          <v-data-table
-            :headers="headers"
-            :items="items"
-            hide-actions
-          >
-            <template
-              slot="headerCell"
-              slot-scope="{ header }"
-            >
-              <span
-                class="subheading font-weight-light text-success text--darken-3"
-                v-text="header.text"
-              />
-            </template>
-            <template
-              slot="items"
-              slot-scope="{ item }"
-            >
-              <td>{{ item.name }}</td>
-              <td>{{ item.country }}</td>
-              <td>{{ item.city }}</td>
-              <td class="text-xs-right">{{ item.salary }}</td>
-            </template>
-          </v-data-table>
-        </material-card>
-      </v-flex>
-      <v-flex
-        md12
-      >
-        <material-card
-          color="green"
           flat
           full-width
           title="Table on Plain Background"
@@ -54,7 +20,7 @@
         >
           <v-data-table
             :headers="headers"
-            :items="items.slice(0, 7)"
+            :items="hourlyForeCast.list"
             hide-actions
           >
             <template
@@ -70,10 +36,11 @@
               slot="items"
               slot-scope="{ item }"
             >
-              <td>{{ item.name }}</td>
-              <td>{{ item.country }}</td>
-              <td>{{ item.city }}</td>
-              <td class="text-xs-right">{{ item.salary }}</td>
+              <td>{{ item.dt }}</td>
+              <td>{{ item.main.temp }}</td>
+              <td>{{ item.main.sea_level }}</td>
+              <td>{{ item.main.humidity }}</td>
+              <td>{{ item.main.pressure }}</td>
             </template>
           </v-data-table>
         </material-card>
@@ -88,24 +55,27 @@ export default {
     headers: [
       {
         sortable: false,
-        text: 'Name',
-        value: 'name'
+        text: 'Time',
+        value: 'time'
+      },      {
+        sortable: false,
+        text: 'Temp',
+        value: 'temp'
       },
       {
         sortable: false,
-        text: 'Country',
-        value: 'country'
+        text: 'Sea Level',
+        value: 'sealevel'
       },
       {
         sortable: false,
-        text: 'City',
-        value: 'city'
+        text: 'Humidity',
+        value: 'humidity'
       },
       {
         sortable: false,
-        text: 'Salary',
-        value: 'salary',
-        align: 'right'
+        text: 'Pressure',
+        value: 'pressure'
       }
     ],
     items: [
