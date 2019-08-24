@@ -11,11 +11,11 @@
                 </v-flex>
                 <v-flex xs12 md6></v-flex>
                 <v-flex xs12 md3 justify-right>
-                  <v-menu offset-y>
-                    <template v-slot:activator="{ on }">
+                  <v-menu offset-y v-model="searchCity">
+                    <template v-slot:activator="{ on }" >
                       <v-btn color="success" dark v-on="on">Favourite Cities</v-btn>
                     </template>
-                    <v-list dense>
+                    <v-list dense v-model="searchCity">
                       <v-list-tile v-for="city in favouriteCities" :key="city" @click="onFavCitiesClick">
                         <v-list-tile-title v-text="city" />
                       </v-list-tile>
@@ -95,7 +95,8 @@ export default {
         }
       ],
       hourlyForeCast: {},
-      favouriteCities: {}
+      favouriteCities: {},
+      searchCity:"Click Me",
     };
   },
   created: function() {
@@ -105,7 +106,7 @@ export default {
   methods: {
     onFavCitiesClick()
     {
-      alert('hi');
+      alert(this.searchCity);
     },
     fetchHourlyItems() {
       axios.defaults.withCredentials = false;
