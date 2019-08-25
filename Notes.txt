@@ -1,3 +1,15 @@
+# first time code download
 yarn install
+
+# serve
 yarn serve
+
+# firebase
 yarn add firebase
+
+# web server for PWA
+yarn add @vue/cli-plugin-pwa
+npm install http-server -g
+yarn run build
+http-server dist
+
