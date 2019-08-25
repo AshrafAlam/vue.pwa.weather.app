@@ -82,20 +82,10 @@ export default {
     logo: './img/vuetifylogo.png',
     links: [
       {
-        to: '/dashboard',
-        icon: 'mdi-view-dashboard',
-        text: 'Dashboard'
-      },
-      {
-        to: '/weather',
+        to: '/',
         icon: 'mdi-apple-icloud',
         text: 'Weather'
-      },
-      {
-        to: '/fav',
-        icon: 'mdi-asterisk',
-        text: 'Favourites'
-      },
+      }
     ],
     responsive: false
   }),
