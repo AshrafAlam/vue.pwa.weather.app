@@ -17,6 +17,8 @@ firebase.initializeApp(config)
 // Initialize Cloud Firestore through Firebase
 let db = firebase.firestore();
 
+db.enablePersistence({experimentalTabSynchronization:true});
+
 export default {
   db
 }
