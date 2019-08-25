@@ -14,3 +14,11 @@ docfx serve ./dist
 npm install http-server -g
 http-server dist
 
+=========================================
+
+- basic pwa (no assets)
+- static resources
+- api calls: firebase
+- api calls: axios
+
+=========================================
