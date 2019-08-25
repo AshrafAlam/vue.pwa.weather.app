@@ -9,7 +9,8 @@ yarn add firebase
 
 # web server for PWA
 yarn add @vue/cli-plugin-pwa
-npm install http-server -g
 yarn run build
+docfx serve ./dist
+npm install http-server -g
 http-server dist
 
