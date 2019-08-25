@@ -1,22 +1,134 @@
-# first time code download
-yarn install
+===============================================================
+- input / output
+- get current location 
+- show data in offline
+- show offline status
+- save data in local storage
+- get api data
+===============================================================
+Create project
+===============================================================
+vanilla - https://vuejs.org/v2/guide/#
 
-# serve
-yarn serve
+- hello world (hosted in IIS)
 
+- modify code
+	- complete getting started
+	
+===============================================================	
+vue cli (npm)
+
+- install vuejs cli
+	- npm install -g @vue/cli
+
+- init cli 
+	- npm install -g @vue/cli-init
+
+- boilar project
+	- https://v1.vuejs.org/guide/installation.html
+	- vue init webpack my-project
+		
+===============================================================
+vue cli (yarn)
+
+- install yarn 
+	- via choco
+		- https://yarnpkg.com/lang/en/docs/install/#windows-stable
+		- choco install yarn
+	- via msi installer
+		- https://yarnpkg.com/latest.msi
+		- path: C:\Program Files (x86)\Yarn\
+		
+- Disable SSL for yarn (due to fiddler)
+	- yarn config set "strict-ssl" false -g
+	
+- install vuejs cli 
+	- https://cli.vuejs.org/
+	- yarn global add @vue/cli
+		
+- install cli services
+	- yarn add @vue/cli-service
+	- yarn global add @vue/cli-service-global
+	
+- boilar project
+	- https://cli.vuejs.org/guide/creating-a-project.html#vue-create
+	- vue create yarn-vuecli-app-1
+
+- run the project
+	- https://cli.vuejs.org/guide/cli-service.html#using-the-binary
+	- yarn serve
+
+===============================================================
+
+- install vuetify
+	- vue add vuetify
+
+===============================================================
+- understand .vue
+- implement layout
+- load data from api (axios)
+
+- save offline data
+- show offline status
+
+===============================================================
+Tools
+===============================================================
+DONE vuejs
+DONE yarn
+DONE vuejs cli 
+
+vuetify - api explorer
+open weather
+axios
+===============================================================
+Snips
+===============================================================
+# install vue-cli
+$ npm install -g vue-cli
+# create a new project using the "webpack" boilerplate
+$ vue init webpack my-project
+# install dependencies and go!
+$ cd my-project
+$ npm install
+$ npm run dev
+
+yarn add @vue/cli-plugin-pwa
+npm install http-server -g
+http-server dist
+
+===============================================================
+npm uninstall -g @vue/cli-init
+npm uninstall -g @vue/cli
+npm uninstall -g yarn
+choco uninstall yarn
+choco install choco-cleaner
+
+C:\ProgramData\chocolatey
+https://chocolatey.org/docs/installation
+
+npm
+choco / yarn
+
+yarn config v1.17.3
+error Could not open cafile: ENOENT: no such file or directory, open 'C:\Temp\temp\FiddlerRoot.cer'
+
+===============================================================
 # firebase
 yarn add firebase
 
 # web server for PWA
-yarn add @vue/cli-plugin-pwa
+
+vue add pwa
+
 yarn run build
+
 docfx serve ./dist
-npm install http-server -g
-http-server dist
+
 
 =========================================
 
-- basic pwa (no assets)
+- basic pwa (no assets) - workbox
 - static resources
 - api calls: firebase
 - api calls: axios
