@@ -2,10 +2,13 @@
 TODO:
 
 - offline status
-- get current location (sjow)
+- get current location (show)
 - axios offline
 - weekly data
 
+Nice to have
+- add log support
+- documentation
 - formatting
 - graph
 - deployment

@@ -125,9 +125,8 @@ export default {
       this.searchCity = "Singapore";
     },
     fetchHourlyItems() {
-
       axios.defaults.withCredentials = false;
-      axios.defaults.headers.common['x-requested-with'] = 'ahraf.com'
+      axios.defaults.headers.common["x-requested-with"] = "ahraf.com";
 
       axios
         .get(
