@@ -125,19 +125,15 @@ export default {
       this.searchCity = "Singapore";
     },
     fetchHourlyItems() {
+      var url =
+        "https://cors-anywhere.herokuapp.com/https://samples.openweathermap.org/data/2.5/forecast/hourly?q=" +
+        this.searchCity +
+        "&appid=b6907d289e10d714a6e88b30761fae22";
       axios.defaults.withCredentials = false;
       axios.defaults.headers.common["x-requested-with"] = "ahraf.com";
-
-      axios
-        .get(
-          "https://cors-anywhere.herokuapp.com/https://samples.openweathermap.org/data/2.5/forecast/hourly?q=" +
-            this.searchCity +
-            "&appid=b6907d289e10d714a6e88b30761fae22",
-          { crossdomain: true }
-        )
-        .then(response => {
-          this.hourlyForeCast = response.data;
-        });
+      axios.get(url).then(response => {
+        this.hourlyForeCast = response.data;
+      });
     },
     fetchFavouriteCities() {
       firebase.db
