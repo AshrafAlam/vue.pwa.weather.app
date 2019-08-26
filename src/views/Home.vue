@@ -135,10 +135,18 @@ export default {
         axios.defaults.headers.common["x-requested-with"] = "ahraf.com";
         axios.get(url).then(response => {
           this.hourlyForeCast = response.data;
-          this.$offlineStorage.set("hour_data_" + this.searchCity, response.data);
+          this.$offlineStorage.set(
+            "hour_data_" + this.searchCity,
+            response.data
+          );
         });
       } else {
-        this.hourlyForeCast = this.$offlineStorage.get("hour_data_" + this.searchCity);
+        if (this.$offlineStorage.get("hour_data_" + this.searchCity) == null)
+          this.hourlyForeCast = {};
+        else
+          this.hourlyForeCast = this.$offlineStorage.get(
+            "hour_data_" + this.searchCity
+          );
       }
     },
     fetchFavouriteCities() {
