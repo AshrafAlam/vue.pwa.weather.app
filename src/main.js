@@ -37,9 +37,12 @@ import store from '@/store'
 
 import axios from 'axios'
 import VueAxios from 'vue-axios'
+
 import './registerServiceWorker'
+import VueOffline from 'vue-offline'
 
 Vue.use(VueAxios, axios)
+Vue.use(VueOffline)
 
 // Sync store with router
 sync(store, router)

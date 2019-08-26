@@ -1,9 +1,9 @@
 ===============================================================
 TODO:
 
-- offline status
-- get current location (show)
+DONE - offline status
 - axios offline
+- get current location (show)
 - weekly data
 
 Nice to have

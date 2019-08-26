@@ -12,9 +12,8 @@
     <v-spacer />
     <v-toolbar-items>
       <v-flex align-center layout py-2>
-        <router-link v-ripple class="toolbar-items" to="/">
-          {{ online_status }}
-        </router-link>
+        <p v-ripple class="toolbar-items" v-if="isOnline">Online</p>
+        <p v-ripple class="toolbar-items" v-if="isOffline">Offline</p>
       </v-flex>
     </v-toolbar-items>
   </v-toolbar>
@@ -22,7 +21,7 @@
 
 <script>
 import { mapMutations } from "vuex";
-
+import VueOffline from "vue-offline";
 export default {
   data: () => ({
     online_status: "online",
@@ -47,6 +46,11 @@ export default {
   mounted() {
     this.onResponsiveInverted();
     window.addEventListener("resize", this.onResponsiveInverted);
+
+    this.$on("offline", () => {
+      //offline event
+    });
+    
   },
   beforeDestroy() {
     window.removeEventListener("resize", this.onResponsiveInverted);

@@ -19,6 +19,7 @@
     "vue-axios": "^2.1.4",
     "vue-chartist": "^2.1.2",
     "vue-meta": "^1.5.2",
+    "vue-offline": "^2.0.8",
     "vuetify": "^1.2.9"
   },
   "devDependencies": {
