@@ -109,7 +109,7 @@ export default {
     };
   },
   created: function() {
-    this.fetchHourlyItems();
+    //this.fetchHourlyItems();
     this.fetchFavouriteCities();
   },
   methods: {
