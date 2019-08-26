@@ -68,7 +68,6 @@
     </v-layout>
   </v-container>
 </template>
-
 <script>
 import axios from "axios";
 import firebase from "../configFirebase.js";
@@ -112,6 +111,20 @@ export default {
     //this.fetchHourlyItems();
     this.fetchFavouriteCities();
   },
+  mounted() {
+    let geo1Script = document.createElement("script");
+    geo1Script.setAttribute(
+      "src",
+      "https://js.api.here.com/v3/3.0/mapsjs-core.js"
+    );
+    document.head.appendChild(geo1Script);
+    let geo2Script = document.createElement("script");
+    geo2Script.setAttribute(
+      "src",
+      "https://js.api.here.com/v3/3.0/mapsjs-service.js"
+    );
+    document.head.appendChild(geo2Script);
+  },
   methods: {
     onSearchClick() {
       this.fetchHourlyItems();
@@ -122,7 +135,30 @@ export default {
       });
     },
     onCurrentLocation() {
-      this.searchCity = "Singapore";
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(position => {
+          var platform = new H.service.Platform({
+            app_id: "lrA7HHg3IwOzGvbXWr4K",
+            app_code: "Qn0AIgmz2r6-QKTFnPUF4w"
+          });
+          var geocoder = platform.getGeocodingService();
+          geocoder.reverseGeocode(
+            {
+              mode: "retrieveAddresses",
+              maxresults: 1,
+              prox: position.coords.latitude + "," + position.coords.longitude
+            },
+            data => {
+              this.searchCity = data.Response.View[0].Result[0].Location.Address.City;
+            },
+            error => {
+              alert(error);
+            }
+          );
+        });
+      } else {
+        console.error("Geolocation is not supported by this browser!");
+      }
     },
     fetchHourlyItems() {
       if (this.isOnline) {
