@@ -1,4 +1,20 @@
 ===============================================================
+TODO:
+
+- offline status
+- get current location (sjow)
+- axios offline
+- weekly data
+
+- formatting
+- graph
+- deployment
+- clean up
+- fav selection notification
+
+- component ui data binding (advanced)
+- ui grid alignment
+===============================================================
 - input / output
 - get current location 
 - show data in offline
@@ -127,13 +143,5 @@ vue add pwa
 yarn run build
 
 docfx serve ./dist
-
-
-=========================================
-
-- basic pwa (no assets) - workbox
-- static resources
-- api calls: firebase
-- api calls: axios
 
 =========================================
