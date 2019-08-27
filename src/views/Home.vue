@@ -48,6 +48,28 @@
           color="green"
           flat
           full-width
+          title="Daily Weather Forecast"
+          text="Shows forecast data with temp, humidity etc."
+        >
+          <v-data-table :headers="headers" :items="dailyForeCast.list" hide-actions>
+            <template slot="headerCell" slot-scope="{ header }">
+              <span class="subheading font-weight-light text--darken-3" v-text="header.text" />
+            </template>
+            <template slot="items" slot-scope="{ item }">
+              <td>{{ item.dt }}</td>
+              <td>{{ item.temp.day }}</td>
+              <td> - </td>
+              <td>{{ item.humidity }}</td>
+              <td>{{ item.pressure }}</td>
+            </template>
+          </v-data-table>
+        </material-card>
+      </v-flex>
+      <v-flex md12>
+        <material-card
+          color="green"
+          flat
+          full-width
           title="Hourly Weather Forecast"
           text="Shows forecast data with temp, humidity etc."
         >
@@ -103,6 +125,7 @@ export default {
         }
       ],
       hourlyForeCast: {},
+      dailyForeCast: {},
       favouriteCities: [],
       searchCity: ""
     };
@@ -128,6 +151,7 @@ export default {
   methods: {
     onSearchClick() {
       this.fetchHourlyItems();
+      this.fetchDailyItems();
     },
     onSaveClick() {
       firebase.db.collection("fav-cities").add({
@@ -149,7 +173,8 @@ export default {
               prox: position.coords.latitude + "," + position.coords.longitude
             },
             data => {
-              this.searchCity = data.Response.View[0].Result[0].Location.Address.City;
+              this.searchCity =
+                data.Response.View[0].Result[0].Location.Address.City;
             },
             error => {
               alert(error);
@@ -168,7 +193,7 @@ export default {
           this.searchCity +
           "&appid=b6907d289e10d714a6e88b30761fae22";
         axios.defaults.withCredentials = false;
-        axios.defaults.headers.common["x-requested-with"] = "ahraf.com";
+        axios.defaults.headers.common["x-requested-with"] = "ashraf.com";
         axios.get(url).then(response => {
           this.hourlyForeCast = response.data;
           this.$offlineStorage.set(
@@ -182,6 +207,30 @@ export default {
         else
           this.hourlyForeCast = this.$offlineStorage.get(
             "hour_data_" + this.searchCity
+          );
+      }
+    },
+    fetchDailyItems() {
+      if (this.isOnline) {
+        var url =
+          "https://cors-anywhere.herokuapp.com/https://samples.openweathermap.org/data/2.5/forecast/daily?q=" +
+          this.searchCity +
+          "&appid=b6907d289e10d714a6e88b30761fae22";
+        axios.defaults.withCredentials = false;
+        axios.defaults.headers.common["x-requested-with"] = "ashraf.com";
+        axios.get(url).then(response => {
+          this.dailyForeCast = response.data;
+          this.$offlineStorage.set(
+            "daily_data_" + this.searchCity,
+            response.data
+          );
+        });
+      } else {
+        if (this.$offlineStorage.get("daily_data_" + this.searchCity) == null)
+          this.dailyForeCast = {};
+        else
+          this.dailyForeCast = this.$offlineStorage.get(
+            "daily_data_" + this.searchCity
           );
       }
     },
