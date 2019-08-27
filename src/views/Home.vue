@@ -131,7 +131,6 @@ export default {
     };
   },
   created: function() {
-    //this.fetchHourlyItems();
     this.fetchFavouriteCities();
   },
   mounted() {
@@ -150,9 +149,8 @@ export default {
   },
   methods: {
     onSearchClick() {
-      //this.fetchHourlyItems();
       this.fetchWeatherData("hourly");
-      this.fetchDailyItems();
+      this.fetchWeatherData("daily");
     },
     onSaveClick() {
       firebase.db.collection("fav-cities").add({
@@ -186,55 +184,6 @@ export default {
         console.error("Geolocation is not supported by this browser!");
       }
     },
-    fetchHourlyItems() {
-      if (this.isOnline) {
-        //load data from api
-        var url =
-          "https://cors-anywhere.herokuapp.com/https://samples.openweathermap.org/data/2.5/forecast/hourly?q=" +
-          this.searchCity +
-          "&appid=b6907d289e10d714a6e88b30761fae22";
-        axios.defaults.withCredentials = false;
-        axios.defaults.headers.common["x-requested-with"] = "ashraf.com";
-        axios.get(url).then(response => {
-          this.hourlyForeCast = response.data;
-          this.$offlineStorage.set(
-            "hour_data_" + this.searchCity,
-            response.data
-          );
-        });
-      } else {
-        if (this.$offlineStorage.get("hour_data_" + this.searchCity) == null)
-          this.hourlyForeCast = {};
-        else
-          this.hourlyForeCast = this.$offlineStorage.get(
-            "hour_data_" + this.searchCity
-          );
-      }
-    },
-    fetchDailyItems() {
-      if (this.isOnline) {
-        var url =
-          "https://cors-anywhere.herokuapp.com/https://samples.openweathermap.org/data/2.5/forecast/daily?q=" +
-          this.searchCity +
-          "&appid=b6907d289e10d714a6e88b30761fae22";
-        axios.defaults.withCredentials = false;
-        axios.defaults.headers.common["x-requested-with"] = "ashraf.com";
-        axios.get(url).then(response => {
-          this.dailyForeCast = response.data;
-          this.$offlineStorage.set(
-            "daily_data_" + this.searchCity,
-            response.data
-          );
-        });
-      } else {
-        if (this.$offlineStorage.get("daily_data_" + this.searchCity) == null)
-          this.dailyForeCast = {};
-        else
-          this.dailyForeCast = this.$offlineStorage.get(
-            "daily_data_" + this.searchCity
-          );
-      }
-    },
     fetchWeatherData(endPointType) {
       var data_cache_key = endPointType + "_data_" + this.searchCity;
 
@@ -249,6 +198,8 @@ export default {
         axios.defaults.headers.common["x-requested-with"] = "ashraf.com";
         axios.get(url).then(response => {
           if (endPointType == "hourly") this.hourlyForeCast = response.data;
+          else if (endPointType == "daily") this.dailyForeCast = response.data;
+
           this.$offlineStorage.set(data_cache_key, response.data);
         });
       } else {
@@ -257,6 +208,7 @@ export default {
         else data = this.$offlineStorage.get(data_cache_key);
 
         if (endPointType == "hourly") this.hourlyForeCast = data;
+        else if (endPointType == "daily") this.dailyForeCast = data;
       }
     },
     fetchFavouriteCities() {
