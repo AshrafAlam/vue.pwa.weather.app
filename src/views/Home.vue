@@ -56,8 +56,8 @@
               <span class="subheading font-weight-light text--darken-3" v-text="header.text" />
             </template>
             <template slot="items" slot-scope="{ item }">
-              <td>{{ item.dt }}</td>
-              <td>{{ item.temp.day }}</td>
+              <td>{{ timestampToDate(item.dt) }}</td>
+              <td>{{ displayTemp (item.temp.day) }}</td>
               <td>{{ item.weather[0].main }}</td>
               <td>{{ item.humidity }}</td>
               <td>{{ item.pressure }}</td>
@@ -78,8 +78,8 @@
               <span class="subheading font-weight-light text--darken-3" v-text="header.text" />
             </template>
             <template slot="items" slot-scope="{ item }">
-              <td>{{ item.dt }}</td>
-              <td>{{ item.main.temp }}</td>
+              <td>{{ timestampToHour (item.dt) }}</td>
+              <td>{{ displayTemp(item.main.temp) }}</td>
               <td>{{ item.weather[0].main }}</td>
               <td>{{ item.main.humidity }}</td>
               <td>{{ item.main.pressure }}</td>
@@ -221,6 +221,20 @@ export default {
             this.favouriteCities.push(city.data().CityName);
           });
         });
+    },
+
+    //formatting methods
+
+    displayTemp: function(temp) {
+      return parseFloat(temp - 273.15).toFixed(2);
+    },
+    timestampToHour: function(timestamp) {
+      var date = new Date(timestamp * 1000);
+      return date.toLocaleString("en-US");
+    },
+    timestampToDate: function(timestamp) {
+      var date = new Date(timestamp * 1000);
+      return date.toLocaleDateString("en-US").slice(0, 4);
     }
   }
 };
