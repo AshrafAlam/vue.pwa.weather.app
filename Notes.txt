@@ -36,7 +36,7 @@ DONE - axios offline
 DONE - get current location (show)
 DONE - daily data
 
-- code optimize
+DONE - code optimize
 - date formatting
 - adjust columns
 - read me
