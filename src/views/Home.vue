@@ -100,8 +100,8 @@ export default {
       headers: [
         {
           sortable: false,
-          text: "Time",
-          value: "time"
+          text: "Date",
+          value: "date"
         },
         {
           sortable: false,
