@@ -37,9 +37,9 @@ DONE - get current location (show)
 DONE - daily data
 
 DONE - code optimize
-- date formatting
-- adjust columns
-- read me
+DONE - adjust columns
+DONE - date formatting
+DONE - read me
 
 Nice to have
 - add log support

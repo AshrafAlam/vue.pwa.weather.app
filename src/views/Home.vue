@@ -57,7 +57,7 @@
             </template>
             <template slot="items" slot-scope="{ item }">
               <td>{{ timestampToDate(item.dt) }}</td>
-              <td>{{ displayTemp (item.temp.day) }}</td>
+              <td>{{ displayTemp (item.temp.day) }} c</td>
               <td>{{ item.weather[0].main }}</td>
               <td>{{ item.humidity }}</td>
               <td>{{ item.pressure }}</td>
@@ -79,7 +79,7 @@
             </template>
             <template slot="items" slot-scope="{ item }">
               <td>{{ timestampToHour (item.dt) }}</td>
-              <td>{{ displayTemp(item.main.temp) }}</td>
+              <td>{{ displayTemp(item.main.temp) }} c</td>
               <td>{{ item.weather[0].main }}</td>
               <td>{{ item.main.humidity }}</td>
               <td>{{ item.main.pressure }}</td>
