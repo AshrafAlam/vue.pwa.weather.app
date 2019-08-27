@@ -58,7 +58,7 @@
             <template slot="items" slot-scope="{ item }">
               <td>{{ item.dt }}</td>
               <td>{{ item.temp.day }}</td>
-              <td>-</td>
+              <td>{{ item.weather[0].main }}</td>
               <td>{{ item.humidity }}</td>
               <td>{{ item.pressure }}</td>
             </template>
@@ -80,7 +80,7 @@
             <template slot="items" slot-scope="{ item }">
               <td>{{ item.dt }}</td>
               <td>{{ item.main.temp }}</td>
-              <td>{{ item.main.sea_level }}</td>
+              <td>{{ item.weather[0].main }}</td>
               <td>{{ item.main.humidity }}</td>
               <td>{{ item.main.pressure }}</td>
             </template>
@@ -110,8 +110,8 @@ export default {
         },
         {
           sortable: false,
-          text: "Sea Level",
-          value: "sealevel"
+          text: "Weather",
+          value: "weather"
         },
         {
           sortable: false,
