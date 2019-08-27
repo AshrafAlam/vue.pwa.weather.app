@@ -7,44 +7,5 @@ export default [
   {
     path: '/',
     view: 'Home'
-  },
-  {
-    path: '/dashboard',
-    // Relative to /src/views
-    view: 'Dashboard'
-  },
-  {
-    path: '/weather',
-    view: 'Weather'
-  },
-  {
-    path: '/fav',
-    view: 'Favourites'
-  },
-  {
-    path: '/user-profile',
-    name: 'User Profile',
-    view: 'UserProfile'
-  },
-  {
-    path: '/typography',
-    view: 'Typography'
-  },
-  {
-    path: '/icons',
-    view: 'Icons'
-  },
-  {
-    path: '/maps',
-    view: 'Maps'
-  },
-  {
-    path: '/notifications',
-    view: 'Notifications'
-  },
-  {
-    path: '/upgrade',
-    name: 'Upgrade to PRO',
-    view: 'Upgrade'
   }
 ]
