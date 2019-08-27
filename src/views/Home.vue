@@ -58,7 +58,7 @@
             <template slot="items" slot-scope="{ item }">
               <td>{{ item.dt }}</td>
               <td>{{ item.temp.day }}</td>
-              <td> - </td>
+              <td>-</td>
               <td>{{ item.humidity }}</td>
               <td>{{ item.pressure }}</td>
             </template>
@@ -150,7 +150,8 @@ export default {
   },
   methods: {
     onSearchClick() {
-      this.fetchHourlyItems();
+      //this.fetchHourlyItems();
+      this.fetchWeatherData("hourly");
       this.fetchDailyItems();
     },
     onSaveClick() {
@@ -232,6 +233,30 @@ export default {
           this.dailyForeCast = this.$offlineStorage.get(
             "daily_data_" + this.searchCity
           );
+      }
+    },
+    fetchWeatherData(endPointType) {
+      var data_cache_key = endPointType + "_data_" + this.searchCity;
+
+      if (this.isOnline) {
+        var url =
+          "https://cors-anywhere.herokuapp.com/https://samples.openweathermap.org/data/2.5/forecast/" +
+          endPointType +
+          "?q=" +
+          this.searchCity +
+          "&appid=b6907d289e10d714a6e88b30761fae22";
+        axios.defaults.withCredentials = false;
+        axios.defaults.headers.common["x-requested-with"] = "ashraf.com";
+        axios.get(url).then(response => {
+          if (endPointType == "hourly") this.hourlyForeCast = response.data;
+          this.$offlineStorage.set(data_cache_key, response.data);
+        });
+      } else {
+        var data;
+        if (this.$offlineStorage.get(data_cache_key) == null) data = {};
+        else data = this.$offlineStorage.get(data_cache_key);
+
+        if (endPointType == "hourly") this.hourlyForeCast = data;
       }
     },
     fetchFavouriteCities() {
