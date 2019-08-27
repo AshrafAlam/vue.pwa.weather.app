@@ -11,7 +11,7 @@ Run the following command to install required packages:
 ### Run in Local Environment
 Run the following command to run the application in local development server
 
-    yarn install
+    yarn serve
 
 ### Build Production Output
 Run the following command to build production output to be deployed in production server
