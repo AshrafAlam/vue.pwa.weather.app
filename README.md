@@ -50,9 +50,13 @@ Clone the repository from the following location:
 
 ### Install
 
+Open command prompt and navigate to the directory where the above source is cloned.
+
 Run the following command to install required packages:
 
     yarn install
+
+Check [here](https://yarnpkg.com/lang/en/docs/getting-started/) to get started with yarn package management.
 
 ### Run in Local Environment
 
