@@ -10,6 +10,8 @@ Simple [Progressive Web Apps](https://developers.google.com/web/progressive-web-
 - Offline ability to view UI and weather data
 - Ability to show offline status
 
+![weather web app](./public/img/app-screen.PNG)
+
 ## Tools & APIs
 
 ### Web Frameworks & Plug-ins
