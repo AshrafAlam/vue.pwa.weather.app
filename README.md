@@ -1,6 +1,10 @@
 # Weather Application
 
-Simple [Progressive Web Apps](https://developers.google.com/web/progressive-web-apps/) (PWA) showing hourly and daily weather forecast data.
+[Progressive Web Applications (PWA)](https://developers.google.com/web/progressive-web-apps/) are re-defining web user experience just like native applications, with offline, notification support etc.
+
+Vue.JS is being one of the primary frameworks driving web experience into next level with PWA.
+
+This repository includes source for a simple weather application to illustrate how easy it is to created PWA by using Vue.js.
 
 ## Weather Application Features
 
