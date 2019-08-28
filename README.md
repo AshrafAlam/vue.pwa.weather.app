@@ -12,7 +12,7 @@ Simple [Progressive Web Apps](https://developers.google.com/web/progressive-web-
 
 ## Give a Star! :star:
 
-If you like or are using this project to learn or start your solution, please give it a [star](https://github.com/EISK/eisk.webapi). Thanks!
+If you like or are using this project to learn or start your solution, please give it a [star](https://github.com/AshrafAlam/vue.pwa.weather.app). Thanks!
 
 ![weather web app](./public/img/app-screen.PNG)
 
