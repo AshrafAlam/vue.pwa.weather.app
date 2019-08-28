@@ -14,7 +14,7 @@ Simple [Progressive Web Apps](https://developers.google.com/web/progressive-web-
 
 If you like or are using this project to learn or start your solution, please give it a [star](https://github.com/EISK/eisk.webapi). Thanks!
 
-![weather web app](./public/img/app-screen.PNG){:height="50%" width="50%"}
+![weather web app](./public/img/app-screen.PNG)
 
 ## Tools & APIs
 
