@@ -10,7 +10,11 @@ Simple [Progressive Web Apps](https://developers.google.com/web/progressive-web-
 - Offline ability to view UI and weather data
 - Ability to show offline status
 
-![weather web app](./public/img/app-screen.PNG)
+## Give a Star! :star:
+
+If you like or are using this project to learn or start your solution, please give it a [star](https://github.com/EISK/eisk.webapi). Thanks!
+
+![weather web app](./public/img/app-screen.PNG){:height="50%" width="50%"}
 
 ## Tools & APIs
 
